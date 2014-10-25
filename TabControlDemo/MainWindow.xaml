@@ -1,0 +1,13 @@
+﻿<Window x:Class="TabControlDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow"
+        Height="200"
+        Width="300">
+    <StackPanel>
+        <Button Content="Stock Tab control"
+                Click="Button_Click_3" />
+        <Button Content="Control template and borders styled"
+                Click="Button_Click"/>
+    </StackPanel>
+</Window>

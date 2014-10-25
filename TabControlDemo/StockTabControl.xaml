@@ -1,0 +1,21 @@
+﻿<Window x:Class="TabControlDemo.StockTabControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TabControl" Height="300" Width="300">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Tab 0">
+                <Grid Background="Gray" />
+            </TabItem>
+            <TabItem Header="Tab 1">
+                <Grid Background="Green" />
+            </TabItem>
+            <TabItem Header="Tab 2">
+                <Grid Background="Red" />
+            </TabItem>
+            <TabItem Header="Tab 3">
+                <Grid Background="Yellow" />
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
