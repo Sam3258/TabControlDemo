@@ -5,6 +5,8 @@
         Height="200"
         Width="300">
     <StackPanel>
+        <Button Content="Tab control layout"
+                Click="Button_Click_1" />
         <Button Content="Stock Tab control"
                 Click="Button_Click_3" />
         <Button Content="Control template and borders styled"
