@@ -36,5 +36,11 @@ namespace TabControlDemo
             StockTabControl wnd = new StockTabControl();
             wnd.ShowDialog();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            TabControlLayout wnd = new TabControlLayout();
+            wnd.ShowDialog();
+        }
     }
 }

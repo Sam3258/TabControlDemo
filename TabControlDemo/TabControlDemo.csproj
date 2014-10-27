@@ -59,6 +59,9 @@
     <Compile Include="StockTabControl.xaml.cs">
       <DependentUpon>StockTabControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TabControlLayout.xaml.cs">
+      <DependentUpon>TabControlLayout.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -76,6 +79,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StockTabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TabControlLayout.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
