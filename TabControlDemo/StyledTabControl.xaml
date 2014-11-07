@@ -5,12 +5,12 @@
         Height="300"
         Width="300">
     <Window.Resources>
-        <Thickness x:Key="Tab_Border_Thickness">4</Thickness>
-        <!--border thickness for a selected tab, the bottom has no border to look like the tabitem is part of the main selected area-->
+        <Thickness x:Key="Tab_Border_Thickness">4,4,4,4</Thickness>
+        <!--border thickness for a selected tab, the bottom has no border to look like the TabItem is part of the main selected area-->
         <Thickness x:Key="TabItem_Border_Thickness_Selected">4,4,4,0</Thickness>
         <Thickness x:Key="TabItem_Spacer_Between_Tabs">0,0,1,0</Thickness>
         <CornerRadius x:Key="TabItem_Corner_Radius">4,4,0,0</CornerRadius>
-        <!--we leave the top left a square so it blends nicely ith the tab item-->
+        <!--we leave the top left a square so it blends nicely with the tab item-->
         <CornerRadius x:Key="TabConrol_Corner_Radius">0,4,4,4</CornerRadius>
         <SolidColorBrush x:Key="Tab_Border_Color">Black</SolidColorBrush>
         <SolidColorBrush x:Key="Tab_Background_Color">#EFEFF2</SolidColorBrush>
@@ -32,8 +32,6 @@
         </LinearGradientBrush>
         <!--style for the top tabitems-->
         <Style TargetType="{x:Type TabItem}">
-            <Setter Property="SnapsToDevicePixels"
-                    Value="True" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TabItem}">
@@ -52,13 +50,13 @@
                                               VerticalAlignment="Center"
                                               HorizontalAlignment="Center" />
                         </Border>
-                        <!--here we create a triger for a selected tabitem-->
-                        <!--selected tabs ill be taller, will be highlighted and-->
-                        <!--will not have a bottom border to giv the illusion that they are part of the main area-->
+                        <!--here we create a trigger so that
+                        selected tabs will be taller, will be highlighted and
+                        will not have a bottom border-->
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsSelected"
                                      Value="True">
-                                <!--this is the broder hange that will make the tab look like its part of the main area-->
+                                <!--remove bottom border-->
                                 <Setter TargetName="tabBorder"
                                         Property="BorderThickness"
                                         Value="{StaticResource TabItem_Border_Thickness_Selected}" />
@@ -79,29 +77,21 @@
         </Style>
         <!--style for the whole tab control-->
         <Style TargetType="{x:Type TabControl}">
-            <Setter Property="SnapsToDevicePixels"
-                    Value="True" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="TabControl">
-                        <Grid>
-                            <!-- 1. First we need to create a grid so that the TabPanel will be on top of the main content,
-                            the TabPanel is th host for the tabs, here we make a grid that has 3 rows
-                            top row is for the tabs, the middle for the overlab and the bottom row for the main 
-                            area and selected content-->
+                        <Grid UseLayoutRounding="True">
                             <Grid.RowDefinitions>
+                                <!--3 rows for the TabPanel, overlap, and the selected content-->
                                 <RowDefinition Height="31" />
                                 <RowDefinition Height="4" />
                                 <RowDefinition Height="*" />
                             </Grid.RowDefinitions>
-                            <!-- 2. here we put the TabPanel in the top and middle rows, we also make it have a ZIndex of 1 so that it will be ontop of the content presenter wich shows the selected content-->
-                            <!--this way the TabItems can easly control the border between the main content and the tabs-->
+                            <!--TabPanel needs to be on top of the selected content border-->
                             <TabPanel IsItemsHost="True"
                                       Grid.Row="0"
                                       Grid.RowSpan="2"
                                       Panel.ZIndex="1" />
-
-                            <!--3. by making this border have a ZInde of 0 it will always be behind the tabs-->
                             <Border Grid.Row="1"
                                     Grid.RowSpan="2"
                                     CornerRadius="{StaticResource TabConrol_Corner_Radius}"
